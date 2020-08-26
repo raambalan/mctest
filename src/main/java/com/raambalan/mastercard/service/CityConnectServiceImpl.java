@@ -2,6 +2,7 @@ package com.raambalan.mastercard.service;
 
 import com.raambalan.mastercard.model.City;
 import com.raambalan.mastercard.model.CityPathGraph;
+import com.raambalan.mastercard.model.Graph;
 import com.raambalan.mastercard.repository.CityConnectRepository;
 import com.raambalan.mastercard.service.CityConnectService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ import static com.raambalan.mastercard.model.Graph.ResultType;
 @Service
 public class CityConnectServiceImpl implements CityConnectService {
     private CityConnectRepository repository;
-    private CityPathGraph pathMap;
+    private Graph pathMap;
 
     public CityConnectServiceImpl(CityConnectRepository repository) {
         this.repository = repository;

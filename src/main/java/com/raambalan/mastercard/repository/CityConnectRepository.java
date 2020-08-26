@@ -1,8 +1,9 @@
 package com.raambalan.mastercard.repository;
 
-import com.raambalan.mastercard.model.CityPathGraph;
+import com.raambalan.mastercard.model.Graph;
+
 import java.io.IOException;
 
 public interface CityConnectRepository {
-     CityPathGraph loadPaths(String fileName) throws IOException;
+    Graph loadPaths(String fileName) throws IOException;
 }

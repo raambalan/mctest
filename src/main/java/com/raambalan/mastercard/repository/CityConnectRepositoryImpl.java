@@ -1,6 +1,7 @@
 package com.raambalan.mastercard.repository;
 
 import com.raambalan.mastercard.model.CityPathGraph;
+import com.raambalan.mastercard.model.Graph;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -30,7 +31,7 @@ public class CityConnectRepositoryImpl implements CityConnectRepository {
         }
     }
 
-    public CityPathGraph loadPaths(String fileName) throws IOException {
+    public Graph loadPaths(String fileName) throws IOException {
         CityPathGraph cityPathGraph = new CityPathGraph();
         ClassLoader classLoader = getClass().getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream(fileName);
