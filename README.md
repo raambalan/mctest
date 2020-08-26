@@ -2,7 +2,7 @@
 Spring Boot App to test connection route between given source and destination cities via REST endpoint
 This application loads default available paths between cities from `resources\city.txt`
 #Installation(on windows)
-1. Clone the source from `git clone https://`
+1. Clone the source from `git clone https://github.com/raambalan/mctest.git`
 2. Run application in command line using `mvnw.cmd clean springboot:run`
 3. Test cases may be run via `mvnw.cmd clean test` 
 
