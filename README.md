@@ -1,5 +1,5 @@
-# City Connect:
-Spring Boot App to test connection route between given source and destination cities via REST endpoint
+# City Connect
+Spring Boot App to test connection route between given source and destination cities via REST endpoint.
 This application loads default available paths between cities from `resources\city.txt`
 # Installation(on windows)
 1. Clone the source from `git clone https://github.com/raambalan/mctest.git`
