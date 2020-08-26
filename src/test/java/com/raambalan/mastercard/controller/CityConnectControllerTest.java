@@ -2,6 +2,7 @@ package com.raambalan.mastercard.controller;
 
 import com.raambalan.mastercard.service.CityConnectService;
 import com.raambalan.mastercard.model.Graph;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -44,24 +45,24 @@ public class CityConnectControllerTest {
     @Test
     void findPathTest() throws Exception {
 
-        mockMvc.perform(
+        Assertions.assertTrue(mockMvc.perform(
                 get("/connected")
                         .param("origin", "City1")
                         .param("destination", "City2"))
-                .andReturn().getResponse().getContentAsString().equalsIgnoreCase("Yes");
+                .andReturn().getResponse().getContentAsString().equalsIgnoreCase("Yes"));
 
-        mockMvc.perform(
+        Assertions.assertTrue(mockMvc.perform(
                 get("/connected")
                         .param("origin", "City2")
                         .param("destination", "City3"))
-                .andReturn().getResponse().getContentAsString().equalsIgnoreCase("No");
+                .andReturn().getResponse().getContentAsString().equalsIgnoreCase("No"));
 
 
-        mockMvc.perform(
+        Assertions.assertTrue(mockMvc.perform(
                 get("/connected")
                         .param("origin", "City5")
                         .param("destination", "City6"))
-                .andReturn().getResponse().getContentAsString().equalsIgnoreCase("No");
+                .andReturn().getResponse().getContentAsString().equalsIgnoreCase("No"));
 
     }
 }
