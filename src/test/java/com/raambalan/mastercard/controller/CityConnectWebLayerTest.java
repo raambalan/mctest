@@ -1,8 +1,8 @@
 package com.raambalan.mastercard.controller;
 
-import com.raambalan.mastercard.CityConnectQuery;
-import com.raambalan.mastercard.CityConnectRepository;
-import com.raambalan.mastercard.CityConnectService;
+import com.raambalan.mastercard.service.CityConnectService;
+import com.raambalan.mastercard.repository.CityConnectRepositoryImpl;
+import com.raambalan.mastercard.service.CityConnectServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -24,8 +24,8 @@ public class CityConnectWebLayerTest {
     @TestConfiguration
     static class MyTestConfiguration {
         @Bean
-        CityConnectQuery cityConnectQuery() {
-            return new CityConnectService(new CityConnectRepository());
+        CityConnectService cityConnectQuery() {
+            return new CityConnectServiceImpl(new CityConnectRepositoryImpl());
         }
 
     }

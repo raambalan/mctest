@@ -1,4 +1,4 @@
-# City Connect:
+# CityConnect
 Spring Boot App to test connection route between given source and destination cities via REST endpoint
 This application loads default available paths between cities from `resources\city.txt`
 # Installation(on windows)
@@ -28,3 +28,6 @@ Data loading handled in CityConnectRepository on initialization from  city.txt u
 # Software requirement:
 1. Java 1.8
 2. Maven
+
+# Endpoint
+Rest Endpoint detail available at http://localhost:8080/swagger-ui.html#/

@@ -1,6 +1,6 @@
 package com.raambalan.mastercard.controller;
 
-import com.raambalan.mastercard.CityConnectQuery;
+import com.raambalan.mastercard.service.CityConnectService;
 import com.raambalan.mastercard.model.Graph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class CityConnectControllerTest {
     private ApplicationContext applicationContext;
 
     @MockBean
-    CityConnectQuery connectQuery;
+    CityConnectService connectQuery;
 
     @BeforeEach
     void printApplicationContext() {

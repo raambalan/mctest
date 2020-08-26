@@ -19,10 +19,13 @@ public class CityPathGraph implements Graph {
     public void addPath(String source, String dest) {
         cityMap.putIfAbsent(source, new City(source));
         cityMap.putIfAbsent(dest, new City(dest));
+
         City sourceCity = cityMap.get(source);
         sourceCity.addEdge(dest);
-        City destCity = cityMap.get(dest);
-        destCity.addEdge(source);
+        if(getGraphType().equals(GraphType.UNDIRECTED)) {
+            City destCity = cityMap.get(dest);
+            destCity.addEdge(source);
+        }
     }
 
     public City getCity(String name) {

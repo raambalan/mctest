@@ -1,4 +1,4 @@
-package com.raambalan.mastercard;
+package com.raambalan.mastercard.repository;
 
 import com.raambalan.mastercard.model.CityPathGraph;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 
 @Repository
 @Slf4j
-public class CityConnectRepository {
+public class CityConnectRepositoryImpl implements CityConnectRepository {
 
     private void readFromInputStream(InputStream inputStream, CityPathGraph cityPathGraph)
             throws IOException {

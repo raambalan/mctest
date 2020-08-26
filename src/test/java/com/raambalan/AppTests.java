@@ -1,7 +1,7 @@
 package com.raambalan;
 
 import com.raambalan.mastercard.CityConnectIntegerationTest;
-import com.raambalan.mastercard.CityConnectServiceTest;
+import com.raambalan.mastercard.service.CityConnectServiceImplTest;
 import com.raambalan.mastercard.controller.CityConnectControllerTest;
 import com.raambalan.mastercard.controller.CityConnectWebLayerTest;
 import com.raambalan.mastercard.model.GraphTest;
@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 @SelectClasses({
         CityConnectControllerTest.class,
         CityConnectWebLayerTest.class,
-        CityConnectServiceTest.class,
+        CityConnectServiceImplTest.class,
         GraphTest.class,
         CityConnectIntegerationTest.class}
 

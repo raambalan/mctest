@@ -1,7 +1,9 @@
-package com.raambalan.mastercard;
+package com.raambalan.mastercard.service;
 
 import com.raambalan.mastercard.model.City;
 import com.raambalan.mastercard.model.CityPathGraph;
+import com.raambalan.mastercard.repository.CityConnectRepository;
+import com.raambalan.mastercard.service.CityConnectService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +17,11 @@ import static com.raambalan.mastercard.model.Graph.ResultType;
 
 @Slf4j
 @Service
-public class CityConnectService implements CityConnectQuery {
+public class CityConnectServiceImpl implements CityConnectService {
     private CityConnectRepository repository;
     private CityPathGraph pathMap;
 
-    public CityConnectService(CityConnectRepository repository) {
+    public CityConnectServiceImpl(CityConnectRepository repository) {
         this.repository = repository;
 
     }
@@ -44,7 +46,7 @@ public class CityConnectService implements CityConnectQuery {
             if (currentCity.equalsIgnoreCase(destination))
                 return ResultType.PATH_FOUND;
             City city = pathMap.getCity(currentCity);
-            for (String name : city.getAdjacentCities()) {
+            for (String name : city.getAdjCities()) {
                 if (!visited.contains(name)) {
                     queue.add(name);
                 }

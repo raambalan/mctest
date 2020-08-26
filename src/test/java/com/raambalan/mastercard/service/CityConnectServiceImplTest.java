@@ -1,5 +1,8 @@
-package com.raambalan.mastercard;
+package com.raambalan.mastercard.service;
 
+import com.raambalan.mastercard.repository.CityConnectRepositoryImpl;
+import com.raambalan.mastercard.service.CityConnectService;
+import com.raambalan.mastercard.service.CityConnectServiceImpl;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -17,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CityConnectServiceTest {
+public class CityConnectServiceImplTest {
     @Autowired
     private ApplicationContext applicationContext;
 
@@ -32,36 +35,35 @@ public class CityConnectServiceTest {
     @TestConfiguration
     static class MyTestConfiguration {
         @Bean
-        public CityConnectQuery connectQuery() {
-            return new CityConnectService(new CityConnectRepository());
+        public CityConnectService connectService() {
+            return new CityConnectServiceImpl(new CityConnectRepositoryImpl());
         }
-
     }
 
 
     @Autowired
-    CityConnectQuery connectQuery;
+    CityConnectService connectService;
 
     @Test
     void directPath() {
-        assertEquals(connectQuery.findPath("New York", "Boston"), ResultType.PATH_FOUND);
+        assertEquals(connectService.findPath("New York", "Boston"), ResultType.PATH_FOUND);
 
     }
 
     @Test
     void multiCityPath() {
-        assertEquals(connectQuery.findPath("Philadelphia", "Boston"), ResultType.PATH_FOUND);
+        assertEquals(connectService.findPath("Philadelphia", "Boston"), ResultType.PATH_FOUND);
     }
 
     @Test
     void pathNotFound() {
-        assertEquals(connectQuery.findPath("Trenton", "Boston"), ResultType.NO_PATH_FOUND);
+        assertEquals(connectService.findPath("Trenton", "Boston"), ResultType.NO_PATH_FOUND);
     }
 
     @Test
     void cityNotFound() {
-        assertEquals(connectQuery.findPath("Trenton12", "Boston"), ResultType.SOURCE_NOT_FOUND);
-        assertEquals(connectQuery.findPath("Boston", "Trenton12"), ResultType.DEST_NOT_FOUND);
+        assertEquals(connectService.findPath("Trenton12", "Boston"), ResultType.SOURCE_NOT_FOUND);
+        assertEquals(connectService.findPath("Boston", "Trenton12"), ResultType.DEST_NOT_FOUND);
     }
 
 }
