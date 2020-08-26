@@ -30,6 +30,8 @@ public class CityConnectServiceImpl implements CityConnectService {
     public ResultType findPath(String source, String destination) {
         Queue<String> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>();
+        if(!source.equalsIgnoreCase("")&&source.equalsIgnoreCase(destination))
+            return ResultType.PATH_FOUND;
 
         if (pathMap.getCity(source)
                 .getName().equalsIgnoreCase("CityNotfound"))
